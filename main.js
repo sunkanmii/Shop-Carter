@@ -1,3 +1,3 @@
-function createItem(element){
+function saveCart(element){
     document.cookie = `item=${element};`
 }

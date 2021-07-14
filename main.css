@@ -35,3 +35,46 @@ main #title{
     width: 6rem;
     height: 1.7rem;
 }
+/* items */
+.items{
+    display: grid;
+    grid-template-columns: minmax(auto, 12rem) minmax(auto, 12rem) minmax(auto, 12rem) minmax(auto, 11rem);
+    align-items: center;
+    margin: 3rem 0;
+    justify-content: center;
+}
+.items .item-section{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.items .item-section img{
+    width: 6.5rem;
+    height: auto;
+    margin-bottom: 1rem;
+}
+.items .item-section p{
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+/* Cart section */
+main .drop-zone{
+    display: flex;
+    position: relative;
+    width: 100%;
+    justify-content: flex-start;
+    padding-left: 4rem;
+    align-items: center;
+}
+main .drop-zone svg{
+    position: relative;
+    width: 12rem;
+    transform: scaleX(-1);
+    height: auto;
+}
+main .drop-zone img{
+    width: 3rem;
+    height: auto;
+}
