@@ -22,26 +22,26 @@
         </section>
 
         <article class="items">
-            <section class="item-section">
-                <img src="./imgs/goldenmorn-removebg-preview.png" alt="item" />
+            <section id="1" draggable="true" class="item-section">
+                <img draggable="false" src="./imgs/goldenmorn-removebg-preview.png" alt="item" />
                 <p>Golden Morn x<span class="item-counter">1</span></p>
             </section>
-            <section class="item-section">
-                <img src="./imgs/80695_1603987554-removebg-preview.png" alt="item" />
+            <section id="2" draggable="true" class="item-section">
+                <img draggable="false" src="./imgs/80695_1603987554-removebg-preview.png" alt="item" />
                 <p>Cornflakes x<span class="item-counter">1</span></p>
             </section>
-            <section class="item-section">
-                <img src="./imgs/mychopchop-african-nigerian-canada-online-grocerystore-peakmilk-chocomilo-spices-1037_1-removebg-preview.png"
+            <section id="3" draggable="true" class="item-section">
+                <img draggable="false" src="./imgs/mychopchop-african-nigerian-canada-online-grocerystore-peakmilk-chocomilo-spices-1037_1-removebg-preview.png"
                     alt="item" />
                 <p>Peak milk x<span class="item-counter">1</span></p>
             </section>
-            <section class="item-section">
-                <img src="./imgs/nutri_milk-removebg-preview.png" alt="Nutri Milk" />
+            <section id="4" draggable="true" class="item-section">
+                <img draggable="false" src="./imgs/nutri_milk-removebg-preview.png" alt="Nutri Milk" />
                 <p>Nutri Milk x<span class="item-counter">1</span></p>
             </section>
         </article>
 
-        <section class="drop-zone">
+        <section ondrop="drop(event)" ondragover="allowDrop(event)" class="drop-zone">
             <svg width="512" height="512" x="0" y="0" viewBox="0 0 512.008 512.008"
                 style="enable-background:new 0 0 512 512" class="">
                 <g>
@@ -74,6 +74,7 @@
         Created by Sunkanmi Fafowora Copyright © 2021.
     </footer>
     <script src='main.js'></script>
+    <script src='drag-and-drop.js'></script>
 </body>
 
 </html>

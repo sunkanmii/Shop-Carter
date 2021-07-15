@@ -8,15 +8,17 @@
     box-sizing: border-box;
 }
 main #title-section{
-    width: 23rem;
+    width: 100%;
+    display: grid;
+    justify-content: center;
     height: auto;
-    border-bottom: 1px solid goldenrod;
 }
 main #title{
-    width: 100%;
+    width: 9rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-bottom: 1px solid goldenrod;
     font-size: 1.7rem;
     height: 4.5rem;
 }
