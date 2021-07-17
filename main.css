@@ -1,6 +1,3 @@
-:root{
-
-}
 *{
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -17,6 +14,8 @@ main #title{
     width: 9rem;
     display: flex;
     justify-content: center;
+    font-family: cursive;
+    color: #e8722a;
     align-items: center;
     border-bottom: 1px solid goldenrod;
     font-size: 1.7rem;
@@ -76,7 +75,15 @@ main .drop-zone svg{
     transform: scaleX(-1);
     height: auto;
 }
+main .drop-zone svg > g:nth-child(1) > path{
+    fill-opacity: 0.8;
+}
 main .drop-zone img{
-    width: 3rem;
+    width: 5rem;
     height: auto;
+    transform: rotate(calc(6deg * var(--index)));
+    top: -0.8rem;
+    left: calc(9.7rem - (var(--index) * 1.6rem));
+    position: absolute;
+    z-index: -1;
 }
