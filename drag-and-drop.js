@@ -11,7 +11,7 @@ function drop(event) {
     let data = document.getElementById(event.dataTransfer.getData("text"));
     let nodes = [...data.parentNode.children];
 
-    convertImage(data.children[0], nodes.findIndex((ele) => ele === data));
+    convertImageToBlob(data.children[0], nodes.findIndex((ele) => ele === data));
     let dropzone = document.querySelector('.drop-zone');
     let imgsInDropZone = [...document.querySelectorAll('.drop-zone img')];
     if(imgsInDropZone.findIndex((ele) => data.children[0].style.getPropertyValue('--index') == ele.style.getPropertyValue('--index')) == -1){
@@ -19,7 +19,7 @@ function drop(event) {
     }
 }
 
-function convertImage(image, num) {
+function convertImageToBlob(image, num) {
     const reader = new FileReader();
 
     fetch(image.getAttribute("src"))

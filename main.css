@@ -75,9 +75,7 @@ main .drop-zone svg{
     transform: scaleX(-1);
     height: auto;
 }
-main .drop-zone svg > g:nth-child(1) > path{
-    fill-opacity: 0.8;
-}
+main .drop-zone svg > g:nth-child(1) > path{fill: #f88d4e;}
 main .drop-zone img{
     width: 5rem;
     height: auto;
