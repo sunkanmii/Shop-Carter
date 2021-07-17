@@ -1,0 +1,87 @@
+*{
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 0;
+    box-sizing: border-box;
+}
+main #title-section{
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    height: auto;
+}
+main #title{
+    width: 9rem;
+    display: flex;
+    justify-content: center;
+    font-family: cursive;
+    color: #e8722a;
+    align-items: center;
+    border-bottom: 1px solid goldenrod;
+    font-size: 1.7rem;
+    height: 4.5rem;
+}
+.create-item-section{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    height: 3rem;
+}
+.create-item-section button{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 0.8rem;
+    width: 6rem;
+    height: 1.7rem;
+}
+/* items */
+.items{
+    display: grid;
+    grid-template-columns: minmax(auto, 12rem) minmax(auto, 12rem) minmax(auto, 12rem) minmax(auto, 11rem);
+    align-items: center;
+    margin: 3rem 0;
+    justify-content: center;
+}
+.items .item-section{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.items .item-section img{
+    width: 6.5rem;
+    height: auto;
+    margin-bottom: 1rem;
+}
+.items .item-section p{
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+/* Cart section */
+main .drop-zone{
+    display: flex;
+    position: relative;
+    width: 100%;
+    justify-content: flex-start;
+    padding-left: 4rem;
+    align-items: center;
+}
+main .drop-zone svg{
+    position: relative;
+    width: 12rem;
+    transform: scaleX(-1);
+    height: auto;
+}
+main .drop-zone svg > g:nth-child(1) > path{fill: #f88d4e;}
+main .drop-zone img{
+    width: 5rem;
+    height: auto;
+    transform: rotate(calc(6deg * var(--index)));
+    top: -0.8rem;
+    left: calc(9.7rem - (var(--index) * 1.6rem));
+    position: absolute;
+    z-index: -1;
+}
