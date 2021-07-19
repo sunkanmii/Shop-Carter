@@ -4,6 +4,12 @@
     padding: 0;
     box-sizing: border-box;
 }
+main{
+    display: grid;
+    grid-template: auto auto;
+    width: 100%;
+    height: auto;
+}
 main #title-section{
     width: 100%;
     display: grid;
@@ -23,10 +29,12 @@ main #title{
 }
 .create-item-section{
     display: flex;
-    width: 100%;
+    width: fit-content;
     align-items: center;
+    justify-self: center;
     justify-content: center;
-    height: 3rem;
+    height: 2.1rem;
+    margin-top: 1rem;
 }
 .create-item-section button{
     display: flex;
@@ -34,7 +42,19 @@ main #title{
     align-items: center;
     font-size: 0.8rem;
     width: 6rem;
-    height: 1.7rem;
+    height: inherit;
+}
+/* Add Items */
+.item-drop-down{
+    display: flex;
+    flex-wrap: wrap;
+    width: 4rem;
+    height: auto;
+    justify-self: center;
+}
+/* hide item list */
+.hide{
+    display: none;
 }
 /* items */
 .items{
