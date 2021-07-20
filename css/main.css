@@ -1,33 +1,97 @@
-*{
+* {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 0;
     box-sizing: border-box;
 }
-main{
+
+body {
+    background: #ffffff;
+    position: relative;
+    height: auto;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+}
+
+main {
     display: grid;
-    grid-template: auto auto;
+    grid-template: auto / auto;
     width: 100%;
     height: auto;
 }
-main #title-section{
-    width: 100%;
+
+main #title-section {
+    width: 12rem;
     display: grid;
+    justify-self: center;
+    grid-template-columns: 2.8rem 9rem;
+    align-items: center;
+    grid-gap: 0.8rem;
     justify-content: center;
     height: auto;
 }
-main #title{
+
+main #title-section img {
+    width: 100%;
+    height: auto;
+}
+
+main #title {
     width: 9rem;
     display: flex;
     justify-content: center;
     font-family: cursive;
-    color: #e8722a;
+    color: #f5c650;
     align-items: center;
-    border-bottom: 1px solid goldenrod;
     font-size: 1.7rem;
     height: 4.5rem;
 }
-.create-item-section{
+
+/* name section */
+#name-section {
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+    width: 100%;
+}
+
+#name-section h2 {
+    color: #f5c650;
+    font-size: 1.3rem;
+}
+
+#name-section button,
+.delete-all-items button {
+    color: white;
+    margin-left: 0.7rem;
+    margin-right: 2rem;
+    transition: 0.2s all ease;
+    box-shadow: 1px 2px 4px #c1c1c1;
+    background-color: red;
+    width: 5rem;
+    min-height: 1.5rem;
+}
+
+#name-section button:hover {
+    background-color: rgb(250, 70, 70);
+}
+
+#name-section button:focus {
+    background-color: rgb(228, 56, 56);
+}
+
+.item-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: auto;
+}
+
+.create-item-section {
     display: flex;
     width: fit-content;
     align-items: center;
@@ -36,72 +100,180 @@ main #title{
     height: 2.1rem;
     margin-top: 1rem;
 }
-.create-item-section button{
+
+.create-item-section button {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     font-size: 0.8rem;
-    width: 6rem;
+    box-shadow: 1px 3px 4px #d7d7d7;
+    background-color: #f2c555;
+    color: white;
+    width: 6.6rem;
     height: inherit;
 }
-/* Add Items */
-.item-drop-down{
+.create-item-section button span {
+}
+.create-item-section button .icon-for-span{
+    position: relative;
+    bottom: 0.3rem;
+    font-size: 1rem;
+}
+/* Add and delete Items */
+.item-drop-down {
     display: flex;
+    position: absolute;
+    justify-content: center;
+    box-shadow: 1px 3px 4px #d7d7d7;
+    top: 3.1rem;
     flex-wrap: wrap;
-    width: 4rem;
+    z-index: 4;
+    width: 8rem;
     height: auto;
     justify-self: center;
 }
+
+.item-drop-down button {
+    width: 8rem;
+    background-color: whitesmoke;
+    border-bottom: 1px solid lightgrey;
+    height: 2.2rem;
+    transition: all 0.2s ease;
+}
+
+.item-drop-down button:hover {
+    color: white;
+    background-color: #f5c650;
+}
+.item-drop-down button:focus {
+    color: white;
+    background-color: #eeb830;
+}
 /* hide item list */
-.hide{
+.hide {
     display: none;
 }
+
 /* items */
-.items{
+.items {
     display: grid;
-    grid-template-columns: minmax(auto, 12rem) minmax(auto, 12rem) minmax(auto, 12rem) minmax(auto, 11rem);
     align-items: center;
+    grid-auto-flow: row;
     margin: 3rem 0;
     justify-content: center;
 }
-.items .item-section{
+
+.items .item-section {
     display: flex;
     justify-content: center;
+    transition: all 0.2s ease;
     flex-wrap: wrap;
     width: 100%;
 }
-.items .item-section img{
+.items .item-section:hover{
+    background-color: #00abef34;
+}
+
+.items .item-section img {
     width: 6.5rem;
     height: auto;
     margin-bottom: 1rem;
 }
-.items .item-section p{
+
+.items .item-section p {
     display: inline-block;
     width: 100%;
     text-align: center;
+    font-family: cursive;
 }
+
 /* Cart section */
-main .drop-zone{
+main .drop-zone {
     display: flex;
     position: relative;
+    margin-top: 3.5rem;
     width: 100%;
     justify-content: flex-start;
-    padding-left: 4rem;
+    padding-left: 1.4rem;
     align-items: center;
 }
-main .drop-zone svg{
+
+main .drop-zone svg {
     position: relative;
     width: 12rem;
     transform: scaleX(-1);
     height: auto;
 }
-main .drop-zone svg > g:nth-child(1) > path{fill: #f88d4e;}
-main .drop-zone img{
+
+main .drop-zone svg>g:nth-child(1)>path {
+    fill: #f88d4e;
+}
+
+main .drop-zone img {
     width: 5rem;
     height: auto;
     transform: rotate(calc(6deg * var(--index)));
     top: -0.8rem;
-    left: calc(9.7rem - (var(--index) * 1.6rem));
+    left: calc(7.5rem - (var(--index) * 1.6rem));
     position: absolute;
     z-index: -1;
+}
+
+/* Checkout and delete section */
+.checkout-delete-container {
+    display: grid;
+    grid-template-columns: 5rem auto;
+    padding-left: 0.8rem;
+    align-items: center;
+    margin-bottom: 9rem;
+}
+
+.delete-all-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+    width: 100%;
+}
+
+.delete-all-items button {
+    margin: 0;
+    height: 2.4rem;
+    width: 13rem;
+}
+
+.checkout-section {
+    width: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkout-section button {
+    width: 5rem;
+    color: white;
+    background-color: lightgreen;
+    box-shadow: 1px 2px 4px #c1c1c1;
+    height: 2.4rem;
+}
+/* Footer section */
+footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5rem;
+    margin-top: 2rem;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background-color: #3d3d3d;
+}
+footer p{
+    color: white;
+    text-align: center;
+}
+@media screen and (min-width: 48rem) {
+    .items {
+        grid-template-columns: minmax(auto, 12rem) minmax(auto, 12rem) minmax(auto, 12rem) minmax(auto, 11rem);
+    }
 }
