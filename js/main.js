@@ -98,6 +98,7 @@ function toggleItems(element) {
 
 // Adds Item to cart
 function addItemToCart(element){
+    popUp();
     let nodes = [...element.parentNode.children];
     let indOfSection = nodes.findIndex((ele) => ele == element);
     let dropzone = document.querySelector('.drop-zone');
