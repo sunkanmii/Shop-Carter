@@ -28,6 +28,23 @@ function saveName(element) {
     document.cookie = `Name=${element}; expires=30 Aug 2021 12:00:00 UTC;`
 }
 
+// Converts image to blob using fetch
+function convertImageToBlob(image, num) {
+    const reader = new FileReader();
+
+    fetch(image.getAttribute("src"))
+        .then(function (response) {
+            return response.blob()
+        })
+        .then(function (blob) {
+            image = blob
+            reader.readAsDataURL(image)
+        });
+    reader.addEventListener("load", () => {
+        localStorage.setItem(`img-${num+1}`, reader.result);
+    })
+}
+
 function blobToFile(theBlob, fileName) {
     theBlob.lastModifiedDate = new Date();
     theBlob.name = fileName;
@@ -77,6 +94,37 @@ function addItem(item) {
 
 function toggleItems(element) {
     element.parentNode.nextElementSibling.classList.toggle('hide');
+}
+
+// Adds Item to cart
+function addItemToCart(element){
+    let nodes = [...element.parentNode.children];
+    let indOfSection = nodes.findIndex((ele) => ele == element);
+    let dropzone = document.querySelector('.drop-zone');
+    let imgsInDropZone = [...document.querySelectorAll('.drop-zone img')];
+
+    convertImageToBlob(element.children[0].cloneNode(), indOfSection);
+
+    if (imgsInDropZone.findIndex((ele) => element.children[0].style.getPropertyValue('--index') == ele.style.getPropertyValue('--index')) == -1) {
+        dropzone.appendChild(element.children[0].cloneNode());
+    }
+
+    let itemCount = parseInt(element.children[1].children[0].textContent.substring(2, 3));
+    let idOfItem = JSON.parse(localStorage.getItem(`id-${indOfSection}`));
+
+    // Save item count in localstorage
+    if (idOfItem != null) {
+        localStorage.setItem(`id-${indOfSection}`, itemCount + idOfItem);
+    } else {
+        localStorage.setItem(`id-${indOfSection}`, itemCount);
+    }
+
+    let deleteItemSection = document.querySelectorAll('.item-drop-down')[1];
+
+    deleteItemSection.children[indOfSection].children[0].textContent = `x ${JSON.parse(localStorage.getItem(`id-${indOfSection}`))}`;
+    let totalItems = document.querySelector('#item-num');
+    totalItems.textContent = parseInt(totalItems.textContent) + parseInt(element.children[1].querySelector('.item-counter').textContent.substring(1, 3));
+    localStorage.setItem('total-items', totalItems.textContent);
 }
 
 function deleteItem(element) {
