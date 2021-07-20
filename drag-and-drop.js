@@ -15,19 +15,18 @@ function drop(event) {
     convertImageToBlob(data.children[0].cloneNode(), indOfSection);
     let dropzone = document.querySelector('.drop-zone');
     let imgsInDropZone = [...document.querySelectorAll('.drop-zone img')];
-    
-    if(imgsInDropZone.findIndex((ele) => data.children[0].style.getPropertyValue('--index') == ele.style.getPropertyValue('--index')) == -1){
+
+    if (imgsInDropZone.findIndex((ele) => data.children[0].style.getPropertyValue('--index') == ele.style.getPropertyValue('--index')) == -1) {
         dropzone.appendChild(data.children[0].cloneNode());
     }
-    
+
     let itemCount = parseInt(data.children[1].children[0].textContent.substring(2, 3));
     let idOfItem = JSON.parse(localStorage.getItem(`id-${indOfSection}`));
-    
+
     // Save item count in localstorage
-    if(idOfItem != null){
+    if (idOfItem != null) {
         localStorage.setItem(`id-${indOfSection}`, itemCount + idOfItem);
-    }
-    else{
+    } else {
         localStorage.setItem(`id-${indOfSection}`, itemCount);
     }
 
@@ -37,6 +36,9 @@ function drop(event) {
     let totalItems = document.querySelector('#item-num');
     totalItems.textContent = parseInt(totalItems.textContent) + parseInt(data.children[1].querySelector('.item-counter').textContent.substring(1, 3));
     localStorage.setItem('total-items', totalItems.textContent);
+
+    // popup
+    popUp();
 }
 
 function convertImageToBlob(image, num) {
@@ -50,7 +52,7 @@ function convertImageToBlob(image, num) {
             image = blob
             reader.readAsDataURL(image)
         });
-        reader.addEventListener("load", () => {
-            localStorage.setItem(`img-${num+1}`, reader.result);
-        })
+    reader.addEventListener("load", () => {
+        localStorage.setItem(`img-${num+1}`, reader.result);
+    })
 }

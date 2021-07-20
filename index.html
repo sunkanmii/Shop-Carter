@@ -15,6 +15,10 @@
             <h1 id="title">ShopCarter</h1>
         </section>
 
+        <section id="name-section">
+            <h2>Name: <span id="name"></span></h2>
+            <button onclick="deleteName()">Delete</button>
+        </section>
         <section class="create-item-section">
             <button onclick="toggleItems(this)"><span>&#43;</span><span>Add item</span></button>
         </section>
@@ -51,14 +55,14 @@
         </section>
 
         <section class="hide item-drop-down">
-            <button onclick="deleteItem(this)">Golden Morn <span class="delete-item-count">x 1</span></button>
-            <button onclick="deleteItem(this)">Cornflakes <span class="delete-item-count">x 1</span></button>
-            <button onclick="deleteItem(this)">Peak Milk <span class="delete-item-count">x 1</span></button>
-            <button onclick="deleteItem(this)">Nutri Milk <span class="delete-item-count">x 1</span></button>
+            <button onclick="deleteItem(this)">Golden Morn <span class="delete-item-count">x 0</span></button>
+            <button onclick="deleteItem(this)">Cornflakes <span class="delete-item-count">x 0</span></button>
+            <button onclick="deleteItem(this)">Peak Milk <span class="delete-item-count">x 0</span></button>
+            <button onclick="deleteItem(this)">Nutri Milk <span class="delete-item-count">x 0</span></button>
         </section>
 
         <section>
-            <button>Delete all items</button>
+            <button onclick="deleteAllItems()">Delete all items</button>
         </section>
         <section draggable="false" ondrop="drop(event)" ondragover="allowDrop(event)" class="drop-zone">
             <svg width="512" height="512" x="0" y="0" viewBox="0 0 512.008 512.008">
@@ -86,6 +90,10 @@
                     </g>
                 </svg>
                 <p>Total Items: <span id="item-num">0</span></p>
+            </section>
+
+            <section>
+                <button>Checkout</button>
             </section>
     </main>
 
