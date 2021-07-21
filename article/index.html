@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang='en-US'>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>ShopCarter</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./css/main.css'>
+    <link rel="icon" sizes="512x512" href="./imgs/giftbox.svg">
+</head>
+
+<body>
+    <main>
+        <section id="title-section">
+            <img src="./imgs/giftbox.svg" alt="" />
+            <h1 id="title">ShopCarter</h1>
+        </section>
+
+        <section id="name-section">
+            <h2>Name: <span id="name"></span></h2>
+            <button onclick="deleteName()">Delete</button>
+        </section>
+        <article class="item-container">
+            <section class="create-item-section">
+                <button onclick="toggleItems(this)"><span>&#43;</span><span>Add item</span></button>
+            </section>
+
+            <section class="hide item-drop-down">
+                <button onclick="addItem(this)">Golden Morn</button>
+                <button onclick="addItem(this)">Cornflakes</button>
+                <button onclick="addItem(this)">Peak Milk</button>
+                <button onclick="addItem(this)">Nutri Milk</button>
+            </section>
+        </article>
+
+        <article class="items">
+            <section id="1" draggable="true" ondragstart="drag(event)" class="item-section" onclick="addItemToCart(this)">
+                <img draggable="false" style="--index: 1" src="./imgs/goldenmorn-removebg-preview.png" alt="item" />
+                <p>Golden Morn <span class="item-counter">x 1</span></p>
+            </section>
+            <section id="2" draggable="true" ondragstart="drag(event)" class="item-section" onclick="addItemToCart(this)">
+                <img draggable="false" style="--index: 2" src="./imgs/80695_1603987554-removebg-preview.png"
+                    alt="item" />
+                <p>Cornflakes <span class="item-counter">x 1</span></p>
+            </section>
+            <section id="3" draggable="true" ondragstart="drag(event)" class="item-section" onclick="addItemToCart(this)">
+                <img draggable="false" style="--index: 3"
+                    src="./imgs/mychopchop-african-nigerian-canada-online-grocerystore-peakmilk-chocomilo-spices-1037_1-removebg-preview.png"
+                    alt="item" />
+                <p>Peak milk <span class="item-counter">x 1</span></p>
+            </section>
+            <section id="4" draggable="true" ondragstart="drag(event)" class="item-section" onclick="addItemToCart(this)">
+                <img draggable="false" style="--index: 4" src="./imgs/nutri_milk-removebg-preview.png"
+                    alt="Nutri Milk" />
+                <p>Nutri Milk <span class="item-counter">x 1</span></p>
+            </section>
+        </article>
+
+        <article class="item-container">
+            <section class="create-item-section">
+                <button onclick="toggleItems(this)"><span class="icon-for-span">&#8964;</span> <span>Delete Item</span></button>
+            </section>
+
+            <section class="hide item-drop-down">
+                <button onclick="deleteItem(this)">Golden Morn <span class="delete-item-count">x 0</span></button>
+                <button onclick="deleteItem(this)">Cornflakes <span class="delete-item-count">x 0</span></button>
+                <button onclick="deleteItem(this)">Peak Milk <span class="delete-item-count">x 0</span></button>
+                <button onclick="deleteItem(this)">Nutri Milk <span class="delete-item-count">x 0</span></button>
+            </section>
+        </article>
+        
+        <section draggable="false" ondrop="drop(event)" ondragover="allowDrop(event)" class="drop-zone">
+            <svg width="512" height="512" x="0" y="0" viewBox="0 0 512.008 512.008">
+                <g>
+                    <path
+                        d="M508.288,85.764c-3.04-3.648-7.552-5.76-12.288-5.76H107.52c-4.96,0-9.664,2.304-12.704,6.24  c-3.008,3.968-4.032,9.088-2.752,13.888l51.2,191.36c1.888,7.04,8.224,11.872,15.456,11.872c0.256,0,0.544,0,0.8-0.032l305.28-15.36  c7.392-0.384,13.6-5.792,14.944-13.088l32-176C512.608,94.18,511.328,89.38,508.288,85.764z"
+                        fill="#ff6207" data-original="#ffc107" class="" />
+                    <g>
+                        <path
+                            d="M400,240.004c-8.832,0-16-7.168-16-16v-64c0-8.832,7.168-16,16-16s16,7.168,16,16v64   C416,232.836,408.832,240.004,400,240.004z"
+                            fill="#fafafa" data-original="#fafafa" />
+                        <path
+                            d="M304,240.004c-8.832,0-16-7.168-16-16v-64c0-8.832,7.168-16,16-16s16,7.168,16,16v64   C320,232.836,312.832,240.004,304,240.004z"
+                            fill="#fafafa" data-original="#fafafa" />
+                        <path
+                            d="M208,240.004c-8.832,0-16-7.168-16-16v-64c0-8.832,7.168-16,16-16s16,7.168,16,16v64   C224,232.836,216.832,240.004,208,240.004z"
+                            fill="#fafafa" data-original="#fafafa" />
+                    </g>
+                    <g>
+                        <circle cx="208" cy="448.004" r="48" fill="#455a64" data-original="#455a64" />
+                        <circle cx="400" cy="448.004" r="48" fill="#455a64" data-original="#455a64" />
+                        <path
+                            d="M432,368.004H176c-7.264,0-13.6-4.864-15.456-11.872L78.272,48.004H16c-8.832,0-16-7.168-16-16   s7.168-16,16-16h74.56c7.264,0,13.6,4.864,15.456,11.872l82.272,308.128H432c8.832,0,16,7.168,16,16S440.832,368.004,432,368.004z"
+                            fill="#455a64" data-original="#455a64" />
+                    </g>
+            </svg>
+            <p>Total Items: <span id="item-num">0</span></p>
+        </section>
+
+        <article class="checkout-delete-container">
+            <section class="delete-all-items">
+                <button onclick="deleteAllItems()">Delete all items</button>
+            </section>
+    
+            <section class="checkout-section">
+                <button>Checkout</button>
+            </section>
+        </article>
+    </main>
+
+    <footer>
+        <p>Created by Sunkanmi Fafowora Copyright © 2021.</p>
+    </footer>
+    <script src='./js/main.js'></script>
+    <script src='./js/drag-and-drop.js'></script>
+</body>
+
+</html>

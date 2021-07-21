@@ -16,16 +16,13 @@ window.onload = () => {
             deleteItemSection.children[parseInt(key.substring(3, 4))].children[0].textContent = `x ${JSON.parse(localStorage.getItem(key))}`;
         }
     })
-
-    let name = getCookie('Name');
-    let nameTag = document.querySelector('#name');
-    if(name != null){
-        nameTag.textContent = name;
-    }
+    // Insert code here
+    
 }
 
 function saveName(element) {
-    document.cookie = `Name=${element}; expires=30 Aug 2021 12:00:00 UTC;`
+    // Insert code here
+
 }
 
 // Converts image to blob using fetch
@@ -52,24 +49,13 @@ function blobToFile(theBlob, fileName) {
 }
 
 function getCookie(name) {
-    name = `name =`;
-    let ca = document.cookie.split(';');
+    // Insert code here
 
-    for (let i = 0; i < ca.length; i++) {
-        let c = ca[i];
-        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-        if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
-    }
-
-    return null;
 }
 
 function deleteName(){
-    let text = document.querySelector('#name');
-    if(text.textContent != null || text.textContent != ""){
-        document.cookie = `Name=; expires=30 Dec 2020 12:00:00 UTC`;
-        text.textContent = "";
-    }
+    // Insert code here
+
 }
 
 // Add items to DOM
@@ -98,7 +84,8 @@ function toggleItems(element) {
 
 // Adds Item to cart
 function addItemToCart(element){
-    popUp();
+    // Insert function call here
+
     let nodes = [...element.parentNode.children];
     let indOfSection = nodes.findIndex((ele) => ele == element);
     let dropzone = document.querySelector('.drop-zone');
@@ -146,22 +133,8 @@ function deleteItem(element) {
 
 // Show Pop-up for name change
 function popUp() {
-    let name = document.querySelector('#name-section h2 #name');
+    // Insert code here
 
-    if(name.textContent.length >= 1){
-        return;
-    }
-
-    let person = prompt('Please enter your name', 'Sunkanmi Fafowora');
-    let text;
-    if (person == null || person == '') {
-        text = 'John Doe';
-        saveName(text);
-    } else {
-        text = `${person}`;
-        saveName(text);
-    }
-    name.textContent = text;
 }
 
 function deleteAllItems(){
