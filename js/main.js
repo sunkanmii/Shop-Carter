@@ -52,7 +52,7 @@ function blobToFile(theBlob, fileName) {
 }
 
 function getCookie(name) {
-    name = name + "=";
+    name = `name =`;
     let ca = document.cookie.split(';');
 
     for (let i = 0; i < ca.length; i++) {
@@ -98,6 +98,7 @@ function toggleItems(element) {
 
 // Adds Item to cart
 function addItemToCart(element){
+    popUp();
     let nodes = [...element.parentNode.children];
     let indOfSection = nodes.findIndex((ele) => ele == element);
     let dropzone = document.querySelector('.drop-zone');
@@ -151,16 +152,16 @@ function popUp() {
         return;
     }
 
-    let person = prompt("Please enter your name", "Sunkanmi Fafowora");
+    let person = prompt('Please enter your name', 'Sunkanmi Fafowora');
     let text;
-    if (person == null || person == "") {
-        text = "John Doe";
+    if (person == null || person == '') {
+        text = 'John Doe';
         saveName(text);
     } else {
         text = `${person}`;
         saveName(text);
-        name.textContent = text;
     }
+    name.textContent = text;
 }
 
 function deleteAllItems(){
